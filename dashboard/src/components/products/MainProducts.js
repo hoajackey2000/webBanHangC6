@@ -1,31 +1,35 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Product from "./Product";
+import Pagination from "./Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../../Redux/Actions/ProductActions";
 import Loading from "../LoadingError/Loading";
 import Message from "../LoadingError/Error";
 
-const MainProducts = () => {
+const MainProducts = (props) => {
+  const { keyword, pagenumber } = props;
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
+  const { loading, error, products, page, pages } = productList;
+
 
   const productDelete = useSelector((state) => state.productDelete);
   const { error: errorDelete, success: successDelete } = productDelete;
 
   useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch, successDelete]);
+    dispatch(listProducts(keyword, pagenumber));
+  }, [dispatch, keyword, pagenumber, successDelete]);
 
   return (
+
     <section className="content-main">
       <div className="content-header">
-        <h2 className="content-title">Products</h2>
+        <h2 className="content-title">Sản Phẩm</h2>
         <div>
           <Link to="/addproduct" className="btn btn-primary">
-            Create new
+            Thêm sản phẩm
           </Link>
         </div>
       </div>
@@ -36,23 +40,23 @@ const MainProducts = () => {
             <div className="col-lg-4 col-md-6 me-auto ">
               <input
                 type="search"
-                placeholder="Search..."
+                placeholder="Tìm Kiếm..."
                 className="form-control p-2"
               />
             </div>
             <div className="col-lg-2 col-6 col-md-3">
               <select className="form-select">
-                <option>All category</option>
-                <option>Electronics</option>
-                <option>Clothings</option>
-                <option>Something else</option>
+                <option>Tất cả loại sản phẩm</option>
+                <option>Thiết bị điện tử</option>
+                <option>Quần áo</option>
+                <option>Khác</option>
               </select>
             </div>
             <div className="col-lg-2 col-6 col-md-3">
               <select className="form-select">
-                <option>Latest added</option>
-                <option>Cheap first</option>
-                <option>Most viewed</option>
+                <option>Mới nhất</option>
+                <option>Rẽ nhất</option>
+                <option>Xem nhiều nhất</option>
               </select>
             </div>
           </div>
@@ -74,6 +78,14 @@ const MainProducts = () => {
               ))}
             </div>
           )}
+
+
+
+          {/* <Pagination
+            pages={pages}
+            page={page}
+            keyword={keyword ? keyword : ""}
+          /> */}
 
           <nav className="float-end mt-4" aria-label="Page navigation">
             <ul className="pagination">
@@ -104,6 +116,9 @@ const MainProducts = () => {
               </li>
             </ul>
           </nav>
+
+
+
         </div>
       </div>
     </section>

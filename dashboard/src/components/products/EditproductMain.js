@@ -103,7 +103,7 @@ const EditProductMain = (props) => {
                     <>
                       <div className="mb-4">
                         <label htmlFor="product_title" className="form-label">
-                          Product title
+                          Tiêu đề sản phẩm
                         </label>
                         <input
                           type="text"
@@ -117,11 +117,11 @@ const EditProductMain = (props) => {
                       </div>
                       <div className="mb-4">
                         <label htmlFor="product_price" className="form-label">
-                          Price
+                          Giá
                         </label>
                         <input
                           type="number"
-                          placeholder="Type here"
+                          placeholder="Nhập giá ở đây"
                           className="form-control"
                           id="product_price"
                           required
@@ -131,7 +131,7 @@ const EditProductMain = (props) => {
                       </div>
                       <div className="mb-4">
                         <label htmlFor="product_price" className="form-label">
-                          Count In Stock
+                          Tồn Kho
                         </label>
                         <input
                           type="number"
@@ -144,7 +144,7 @@ const EditProductMain = (props) => {
                         />
                       </div>
                       <div className="mb-4">
-                        <label className="form-label">Description</label>
+                        <label className="form-label">Miêu tả</label>
                         <textarea
                           placeholder="Type here"
                           className="form-control"
@@ -155,7 +155,7 @@ const EditProductMain = (props) => {
                         ></textarea>
                       </div>
                       <div className="mb-4">
-                        <label className="form-label">Images</label>
+                        <label className="form-label">Hình ảnh</label>
                         <input
                           className="form-control"
                           type="text"

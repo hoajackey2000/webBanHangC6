@@ -20,7 +20,6 @@ userRouter.post(
         email: user.email,
         isAdmin: user.isAdmin,
         token: generateToken(user._id),
-        //token: null,
         createdAt: user.createdAt,
       });
     } else {

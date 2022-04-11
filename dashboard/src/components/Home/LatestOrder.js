@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import Message from "../LoadingError/Error";
 import Loading from "../LoadingError/Loading";
 
+
 const LatestOrder = (props) => {
   const { loading, error, orders } = props;
   return (
     <div className="card-body">
-      <h4 className="card-title">New orders</h4>
+      <h4 className="card-title">Đơn hàng mới</h4>
       {loading ? (
         <Loading />
       ) : error ? (
@@ -23,15 +24,15 @@ const LatestOrder = (props) => {
                     <b>{order.user.name}</b>
                   </td>
                   <td>{order.user.email}</td>
-                  <td>${order.totalPrice}</td>
+                  <td>{order.totalPrice} VDN </td>
                   <td>
                     {order.isPaid ? (
                       <span className="badge rounded-pill alert-success">
-                        Paid At {moment(order.paidAt).format("MMM Do YY")}
+                        Đã thanh toán vào ngày {moment(order.paidAt).format("DD/MM/YYYY")}
                       </span>
                     ) : (
                       <span className="badge rounded-pill alert-danger">
-                        Not Paid
+                        Chưa thanh toán
                       </span>
                     )}
                   </td>

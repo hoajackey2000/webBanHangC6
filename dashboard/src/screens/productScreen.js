@@ -3,16 +3,21 @@ import Sidebar from "./../components/sidebar";
 import Header from "./../components/Header";
 import MainProducts from "./../components/products/MainProducts";
 
-const ProductScreen = () => {
+const ProductScreen = ({ match }) => {
+  window.scrollTo(0, 0);
+  const keyword = match.params.keyword;
+  const pagenumber = match.params.pagenumber;
+
   return (
     <>
       <Sidebar />
       <main className="main-wrap">
         <Header />
-        <MainProducts />
+        <MainProducts keyword={keyword} pagenumber={pagenumber} />
       </main>
     </>
   );
 };
+
 
 export default ProductScreen;
