@@ -24,7 +24,7 @@ const Product = (props) => {
             <Link to="#" className="title text-truncate">
               {product.name}
             </Link>
-            <div className="price mb-2">{product.price} VND</div>
+            <div className="price mb-2">{String(product.price).replace(/(.)(?=(\d{3})+$)/g, '$1,')} VND</div>
             <div className="row">
               <Link
                 to={`/product/${product._id}/edit`}

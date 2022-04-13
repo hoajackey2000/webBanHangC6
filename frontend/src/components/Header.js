@@ -64,7 +64,7 @@ const Header = () => {
               <div className="row ">
                 <div className="col-6 d-flex align-items-center">
                   <Link className="navbar-brand" to="/">
-                    <img alt="logo" src="/images/logo.png" />
+                    <img alt="logo" src="/images/logo.gif" />
                   </Link>
                 </div>
                 <div className="col-6 d-flex align-items-center justify-content-end Login-Register">
@@ -81,7 +81,7 @@ const Header = () => {
                       </button>
                       <div className="dropdown-menu">
                         <Link className="dropdown-item" to="/profile">
-                          Profile
+                          Thông tin cá nhân
                         </Link>
 
                         <Link
@@ -89,7 +89,7 @@ const Header = () => {
                           to="#"
                           onClick={logoutHandler}
                         >
-                          Logout
+                          Đăng xuất
                         </Link>
                       </div>
                     </div>
@@ -106,11 +106,11 @@ const Header = () => {
                       </button>
                       <div className="dropdown-menu">
                         <Link className="dropdown-item" to="/login">
-                          Login
+                          Đăng nhập
                         </Link>
 
                         <Link className="dropdown-item" to="/register">
-                          Register
+                          Đăng ký
                         </Link>
                       </div>
                     </div>
@@ -126,11 +126,11 @@ const Header = () => {
                     <input
                       type="search"
                       className="form-control rounded search"
-                      placeholder="Search"
+                      placeholder="Tìm kiếm"
                       onChange={(e) => setKeyword(e.target.value)}
                     />
                     <button type="submit" className="search-button">
-                      search
+                      Tìm kiếm
                     </button>
                   </form>
                 </div>
@@ -143,7 +143,7 @@ const Header = () => {
             <div className="row">
               <div className="col-md-3 col-4 d-flex align-items-center">
                 <Link className="navbar-brand" to="/">
-                  <img alt="logo" src="/images/logo.png" />
+                  <img alt="logo" src="/images/logo.gif" />
                 </Link>
               </div>
               <div className="col-md-6 col-8 d-flex align-items-center">
@@ -151,11 +151,11 @@ const Header = () => {
                   <input
                     type="search"
                     className="form-control rounded search"
-                    placeholder="Search"
+                    placeholder="Tìm kiếm"
                     onChange={(e) => setKeyword(e.target.value)}
                   />
                   <button type="submit" className="search-button">
-                    search
+                    Tìm kiếm
                   </button>
                 </form>
               </div>
@@ -169,11 +169,11 @@ const Header = () => {
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      Hi, {userInfo.name}
+                      Xin chào, {userInfo.name}
                     </button>
                     <div className="dropdown-menu">
                       <Link className="dropdown-item" to="/profile">
-                        Profile
+                        Thông tin cá nhân
                       </Link>
 
                       <Link
@@ -181,14 +181,14 @@ const Header = () => {
                         to="#"
                         onClick={logoutHandler}
                       >
-                        Logout
+                        Đăng xuất
                       </Link>
                     </div>
                   </div>
                 ) : (
                   <>
-                    <Link to="/register">Register</Link>
-                    <Link to="/login">Login</Link>
+                    <Link to="/register">Đăng ký</Link>
+                    <Link to="/login">Đăng nhập</Link>
                   </>
                 )}
 

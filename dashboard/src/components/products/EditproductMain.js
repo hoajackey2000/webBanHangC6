@@ -42,7 +42,7 @@ const EditProductMain = (props) => {
   useEffect(() => {
     if (successUpdate) {
       dispatch({ type: PRODUCT_UPDATE_RESET });
-      toast.success("Product Updated", ToastObjects);
+      toast.success("Cập nhập sản phẩm thành công", ToastObjects);
     } else {
       if (!product.name || product._id !== productId) {
         dispatch(editProduct(productId));
@@ -70,6 +70,12 @@ const EditProductMain = (props) => {
     );
   };
 
+  // Create our number formatter.
+  var formatter = new Intl.NumberFormat({
+    style: 'currency',
+    currency: 'VND',
+  });
+
   return (
     <>
       <Toast />
@@ -77,12 +83,12 @@ const EditProductMain = (props) => {
         <form onSubmit={submitHandler}>
           <div className="content-header">
             <Link to="/products" className="btn btn-danger text-white">
-              Go to products
+              Đi đến sản phẩm
             </Link>
-            <h2 className="content-title">Update Product</h2>
+            <h2 className="content-title">Cập nhật sản phẩm</h2>
             <div>
               <button type="submit" className="btn btn-primary">
-                Publish now
+                Cập nhật
               </button>
             </div>
           </div>
@@ -120,12 +126,12 @@ const EditProductMain = (props) => {
                           Giá
                         </label>
                         <input
-                          type="number"
+                          type="text"
                           placeholder="Nhập giá ở đây"
                           className="form-control"
                           id="product_price"
                           required
-                          value={price}
+                          value={formatter.format(price)}
                           onChange={(e) => setPrice(e.target.value)}
                         />
                       </div>

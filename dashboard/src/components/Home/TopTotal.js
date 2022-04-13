@@ -18,7 +18,8 @@ const TopTotal = (props) => {
             </span>
             <div className="text">
               <h6 className="mb-1">Tổng Doanh Số</h6>{" "}
-              <span>{totalSale.toFixed(0)} VND</span>
+              <span>{String(totalSale.toFixed(0)).replace(/(.)(?=(\d{3})+$)/g, '$1,')} VND</span>
+
             </div>
           </article>
         </div>

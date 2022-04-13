@@ -55,7 +55,8 @@ const ShopSection = (props) => {
                               value={product.rating}
                               text={`${product.numReviews} reviews`}
                             />
-                            <h3>${product.price}</h3>
+                            <h3>{String(product.price).replace(/(.)(?=(\d{3})+$)/g, '$1,')} VND</h3>
+
                           </div>
                         </div>
                       </div>

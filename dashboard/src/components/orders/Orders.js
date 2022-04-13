@@ -8,14 +8,14 @@ const Orders = (props) => {
     <table className="table">
       <thead>
         <tr>
-          <th scope="col">Name</th>
+          <th scope="col">Tên người đặt hàng</th>
           <th scope="col">Email</th>
-          <th scope="col">Total</th>
-          <th scope="col">Paid</th>
-          <th scope="col">Date</th>
-          <th>Status</th>
+          <th scope="col">Tổng giá</th>
+          <th scope="col">Thanh toán</th>
+          <th scope="col">Ngày</th>
+          <th>Tình trạng</th>
           <th scope="col" className="text-end">
-            Action
+            Hoạt động
           </th>
         </tr>
       </thead>
@@ -26,24 +26,24 @@ const Orders = (props) => {
               <b>{order.user.name}</b>
             </td>
             <td>{order.user.email}</td>
-            <td>${order.totalPrice}</td>
+            <td>{String(order.totalPrice).replace(/(.)(?=(\d{3})+$)/g, '$1,')}</td>
             <td>
               {order.isPaid ? (
                 <span className="badge rounded-pill alert-success">
-                  Paid At {moment(order.paidAt).format("DD/MM/YYYY")}
+                  Thanh toán vào ngày {moment(order.paidAt).format("DD/MM/YYYY")}
                 </span>
               ) : (
                 <span className="badge rounded-pill alert-danger">
-                  Not Paid
+                  Chưa thanh toán
                 </span>
               )}
             </td>
             <td>{moment(order.createdAt).format("DD/MM/YYYY")}</td>
             <td>
               {order.isDelivered ? (
-                <span className="badge btn-success">Delivered</span>
+                <span className="badge btn-success">Đã giao hàng</span>
               ) : (
-                <span className="badge btn-dark">Not delivered</span>
+                <span className="badge btn-dark">Chưa giao hàng</span>
               )}
             </td>
             <td className="d-flex justify-content-end align-item-center">

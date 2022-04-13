@@ -34,7 +34,7 @@ const Header = () => {
       <div className="col-search">
         <form className="searchform">
           <div className="input-group">
-            <input
+            {/* <input
               list="search_terms"
               type="text"
               className="form-control"
@@ -42,7 +42,7 @@ const Header = () => {
             />
             <button className="btn btn-light bg" type="button">
               <i className="far fa-search"></i>
-            </button>
+            </button> */}
           </div>
           <datalist id="search_terms">
             <option value="Products" />
@@ -53,14 +53,14 @@ const Header = () => {
         </form>
       </div>
       <div className="col-nav">
-        <button
+        {/* <button
           className="btn btn-icon btn-mobile me-auto"
           data-trigger="#offcanvas_aside"
         >
           <i className="md-28 fas fa-bars"></i>
-        </button>
+        </button> */}
         <ul className="nav">
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link className={`nav-link btn-icon `} title="Dark mode" to="#">
               <i className="fas fa-moon"></i>
             </Link>
@@ -69,7 +69,7 @@ const Header = () => {
             <Link className="nav-link btn-icon" to="#">
               <i className="fas fa-bell"></i>
             </Link>
-          </li>
+          </li> */}
           {/* <li className="nav-item">
             <Link className="nav-link" to="#">
               English
@@ -85,17 +85,17 @@ const Header = () => {
             </Link>
             <div className="dropdown-menu dropdown-menu-end">
               <Link className="dropdown-item" to="/">
-                My profile
+                Thông tin cá nhân
               </Link>
               <Link className="dropdown-item" to="#">
-                Settings
+                Cài đặt
               </Link>
               <Link
                 onClick={logoutHandler}
                 className="dropdown-item text-danger"
                 to="#"
               >
-                Exit
+                Thoát
               </Link>
             </div>
           </li>

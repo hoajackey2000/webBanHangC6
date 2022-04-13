@@ -9,7 +9,7 @@ const productRoute = express.Router();
 productRoute.get(
   "/",
   asyncHandler(async (req, res) => {
-    const pageSize = 9;
+    const pageSize = 6;
     const page = Number(req.query.pageNumber) || 1;
     const keyword = req.query.keyword
       ? {
@@ -34,7 +34,7 @@ productRoute.get(
   protect,
   admin,
   asyncHandler(async (req, res) => {
-    const pageSize = 8;
+    const pageSize = 12;
     const page = Number(req.query.pageNumber) || 1;
     const keyword = req.query.keyword
       ? {

@@ -17,10 +17,10 @@ const UserComponent = () => {
   return (
     <section className="content-main">
       <div className="content-header">
-        <h2 className="content-title">Customers</h2>
+        <h2 className="content-title">Khách hàng</h2>
         <div>
           <Link to="#" className="btn btn-primary">
-            <i className="material-icons md-plus"></i> Create new
+            <i className="material-icons md-plus"></i> Tạo tài khoản
           </Link>
         </div>
       </div>
@@ -28,14 +28,14 @@ const UserComponent = () => {
       <div className="card mb-4">
         <header className="card-header">
           <div className="row gx-3">
-            <div className="col-lg-4 col-md-6 me-auto">
+            {/* <div className="col-lg-4 col-md-6 me-auto">
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder="Tìm kiếm"
                 className="form-control"
               />
-            </div>
-            <div className="col-lg-2 col-6 col-md-3">
+            </div> */}
+            {/* <div className="col-lg-2 col-6 col-md-3">
               <select className="form-select">
                 <option>Show 20</option>
                 <option>Show 30</option>
@@ -49,7 +49,7 @@ const UserComponent = () => {
                 <option>Active only</option>
                 <option>Disabled</option>
               </select>
-            </div>
+            </div> */}
           </div>
         </header>
 

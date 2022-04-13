@@ -23,7 +23,7 @@ const Orders = (props) => {
                   fontSize: "12px",
                 }}
               >
-                START SHOPPING
+                Bắt đầu mua sắm
               </Link>
             </div>
           ) : (
@@ -32,17 +32,16 @@ const Orders = (props) => {
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>STATUS</th>
-                    <th>DATE</th>
-                    <th>TOTAL</th>
+                    <th>Tình Trạng</th>
+                    <th>Ngày</th>
+                    <th>Tổng Giá</th>
                   </tr>
                 </thead>
                 <tbody>
                   {orders.map((order) => (
                     <tr
-                      className={`${
-                        order.isPaid ? "alert-success" : "alert-danger"
-                      }`}
+                      className={`${order.isPaid ? "alert-success" : "alert-danger"
+                        }`}
                       key={order._id}
                     >
                       <td>
@@ -50,13 +49,14 @@ const Orders = (props) => {
                           {order._id}
                         </a>
                       </td>
-                      <td>{order.isPaid ? <>Paid</> : <>Not Paid</>}</td>
+                      <td>{order.isPaid ? <>Thanh toán</> : <> Chưa thanh toán</>}</td>
                       <td>
                         {order.isPaid
                           ? moment(order.paidAt).calendar()
                           : moment(order.createdAt).calendar()}
                       </td>
-                      <td>${order.totalPrice}</td>
+                      <td>{String(order.totalPrice).replace(/(.)(?=(\d{3})+$)/g, '$1,')} VND</td>
+
                     </tr>
                   ))}
                 </tbody>

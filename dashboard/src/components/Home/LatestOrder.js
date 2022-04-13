@@ -24,7 +24,7 @@ const LatestOrder = (props) => {
                     <b>{order.user.name}</b>
                   </td>
                   <td>{order.user.email}</td>
-                  <td>{order.totalPrice} VDN </td>
+                  <td> {String(order.totalPrice).replace(/(.)(?=(\d{3})+$)/g, '$1,')} VND</td>
                   <td>
                     {order.isPaid ? (
                       <span className="badge rounded-pill alert-success">
