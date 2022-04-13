@@ -5,7 +5,7 @@ import Order from "./../Models/OrderModel.js";
 
 const orderRouter = express.Router();
 
-// CREATE ORDER
+// Tạo mới đơn hàng
 orderRouter.post(
   "/",
   protect,
@@ -22,7 +22,7 @@ orderRouter.post(
 
     if (orderItems && orderItems.length === 0) {
       res.status(400);
-      throw new Error("No order items");
+      throw new Error("Đơn hàng không có mặt hàng");
       return;
     } else {
       const order = new Order({
@@ -42,7 +42,7 @@ orderRouter.post(
   })
 );
 
-// ADMIN GET ALL ORDERS
+// ADMIN lấy tất cả đơn hàng
 orderRouter.get(
   "/all",
   protect,
@@ -54,7 +54,7 @@ orderRouter.get(
     res.json(orders);
   })
 );
-// USER LOGIN ORDERS
+// USER đăng nhập đơn đặt hàng
 orderRouter.get(
   "/",
   protect,
@@ -64,7 +64,7 @@ orderRouter.get(
   })
 );
 
-// GET ORDER BY ID
+// Lấy đơn đặt hàng theo ID
 orderRouter.get(
   "/:id",
   protect,
@@ -78,12 +78,12 @@ orderRouter.get(
       res.json(order);
     } else {
       res.status(404);
-      throw new Error("Order Not Found");
+      throw new Error("Đơn hàng không được tìm thấy");
     }
   })
 );
 
-// ORDER IS PAID
+// Đơn hàng đã thanh toán
 orderRouter.put(
   "/:id/pay",
   protect,
@@ -104,12 +104,12 @@ orderRouter.put(
       res.json(updatedOrder);
     } else {
       res.status(404);
-      throw new Error("Order Not Found");
+      throw new Error("Đơn hàng không được tìm thấy");
     }
   })
 );
 
-// ORDER IS PAID
+// Đơn hàng đã được giao
 orderRouter.put(
   "/:id/delivered",
   protect,
@@ -124,7 +124,7 @@ orderRouter.put(
       res.json(updatedOrder);
     } else {
       res.status(404);
-      throw new Error("Order Not Found");
+      throw new Error("Đơn hàng không được tìm thấy");
     }
   })
 );

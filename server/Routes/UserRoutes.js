@@ -6,7 +6,7 @@ import User from "./../Models/UserModel.js";
 
 const userRouter = express.Router();
 
-// LOGIN
+// Đăng nhập
 userRouter.post(
   "/login",
   asyncHandler(async (req, res) => {
@@ -24,12 +24,12 @@ userRouter.post(
       });
     } else {
       res.status(401);
-      throw new Error("Invalid Email or Password");
+      throw new Error("Email or Password đã tồn tại");
     }
   })
 );
 
-// REGISTER
+// Đăng ký
 userRouter.post(
   "/",
   asyncHandler(async (req, res) => {
@@ -39,7 +39,7 @@ userRouter.post(
 
     if (userExists) {
       res.status(400);
-      throw new Error("User already exists");
+      throw new Error("Người dùng đã tồn tại");
     }
 
     const user = await User.create({
@@ -58,12 +58,12 @@ userRouter.post(
       });
     } else {
       res.status(400);
-      throw new Error("Invalid User Data");
+      throw new Error("Dữ liệu người dùng không hợp lệ");
     }
   })
 );
 
-// PROFILE
+// Thông tin cá nhân
 userRouter.get(
   "/profile",
   protect,
@@ -80,12 +80,12 @@ userRouter.get(
       });
     } else {
       res.status(404);
-      throw new Error("User not found");
+      throw new Error("Người dùng không được tìm thấy");
     }
   })
 );
 
-// UPDATE PROFILE
+// Cập nhật thông tin cá nhân
 userRouter.put(
   "/profile",
   protect,
@@ -109,12 +109,12 @@ userRouter.put(
       });
     } else {
       res.status(404);
-      throw new Error("User not found");
+      throw new Error(" Người dùng không được tìm thấy ");
     }
   })
 );
 
-// GET ALL USER ADMIN
+// Lấy tất cả quản trị viên người dùng
 userRouter.get(
   "/",
   protect,

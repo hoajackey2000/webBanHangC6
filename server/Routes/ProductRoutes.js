@@ -5,7 +5,7 @@ import { admin, protect } from "./../Middleware/AuthMiddleware.js";
 
 const productRoute = express.Router();
 
-// GET ALL PRODUCT
+// lấy tất cả sản phẩm
 productRoute.get(
   "/",
   asyncHandler(async (req, res) => {
@@ -28,7 +28,7 @@ productRoute.get(
   })
 );
 
-// ADMIN GET ALL PRODUCT WITHOUT SEARCH AND PEGINATION
+// ADMIN nhận tất cả sản phẩm 
 productRoute.get(
   "/all",
   protect,
@@ -53,16 +53,12 @@ productRoute.get(
     const pages = Math.ceil(count / pageSize)
     res.json(products, page, pages);
 
-
-
-
-
     // const products = await Product.find({}).sort({ _id: -1 });
 
   })
 );
 
-// GET SINGLE PRODUCT
+// Lấy từng sản phẩm
 productRoute.get(
   "/:id",
   asyncHandler(async (req, res) => {
@@ -76,7 +72,7 @@ productRoute.get(
   })
 );
 
-// PRODUCT REVIEW
+// Đánh giá sản phẩm
 productRoute.post(
   "/:id/review",
   protect,
@@ -90,7 +86,7 @@ productRoute.post(
       );
       if (alreadyReviewed) {
         res.status(400);
-        throw new Error("Product already Reviewed");
+        throw new Error("Sản phẩm xem xét");
       }
       const review = {
         name: req.user.name,
@@ -106,15 +102,15 @@ productRoute.post(
         product.reviews.length;
 
       await product.save();
-      res.status(201).json({ message: "Reviewed Added" });
+      res.status(201).json({ message: "Đã thêm đánh giá" });
     } else {
       res.status(404);
-      throw new Error("Product not Found");
+      throw new Error("Không có sản phẩm");
     }
   })
 );
 
-// DELETE PRODUCT
+// xóa sản phẩm
 productRoute.delete(
   "/:id",
   protect,
@@ -123,15 +119,15 @@ productRoute.delete(
     const product = await Product.findById(req.params.id);
     if (product) {
       await product.remove();
-      res.json({ message: "Product deleted" });
+      res.json({ message: "Sản phẩm đã bị xóa" });
     } else {
       res.status(404);
-      throw new Error("Product not Found");
+      throw new Error("Sản phẩm không có");
     }
   })
 );
 
-// CREATE PRODUCT
+// thêm mới sản phẩm
 productRoute.post(
   "/",
   protect,
@@ -141,7 +137,7 @@ productRoute.post(
     const productExist = await Product.findOne({ name });
     if (productExist) {
       res.status(400);
-      throw new Error("Product name already exist");
+      throw new Error("Sản phẩm đã tồn tại");
     } else {
       const product = new Product({
         name,
@@ -156,13 +152,13 @@ productRoute.post(
         res.status(201).json(createdproduct);
       } else {
         res.status(400);
-        throw new Error("Invalid product data");
+        throw new Error("Dữ liệu sản phẩm không hợp lệ");
       }
     }
   })
 );
 
-// UPDATE PRODUCT
+// Cập nhật sản phẩm
 productRoute.put(
   "/:id",
   protect,
@@ -181,7 +177,7 @@ productRoute.put(
       res.json(updatedProduct);
     } else {
       res.status(404);
-      throw new Error("Product not found");
+      throw new Error("Sản phẩm không có");
     }
   })
 );
