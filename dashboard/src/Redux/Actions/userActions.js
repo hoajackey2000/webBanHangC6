@@ -35,7 +35,7 @@ export const login = (email, password) => async (dispatch) => {
     );
 
     if (!data.isAdmin === true) {
-      toast.error("You are not Admin", ToastObjects);
+      toast.error("Bạn không có quyền truy cập trang quản trị", ToastObjects);
       dispatch({
         type: USER_LOGIN_FAIL,
       });
@@ -49,7 +49,7 @@ export const login = (email, password) => async (dispatch) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-    if (message === "Not authorized, token failed") {
+    if (message === "Lỗi xảy ra khi đăng nhập, Mời đăng nhập lại") {
       dispatch(logout());
     }
     dispatch({

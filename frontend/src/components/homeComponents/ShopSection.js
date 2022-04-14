@@ -16,7 +16,7 @@ const ShopSection = (props) => {
 
   useEffect(() => {
     dispatch(listProduct(keyword, pagenumber));
-  }, [dispatch, keyword, pagenumber]);
+  }, [dispatch, keyword, pagenumber]); // khi chuyển trang load lại `dispatch` và pagenumber thay đổi theo số trang
   return (
     <>
       <div className="container">
@@ -26,13 +26,13 @@ const ShopSection = (props) => {
               <div className="shopcontainer row">
                 {loading ? (
                   <div className="mb-5">
-                    <Loading />
+                    <Loading /> {/* hiệu ứng load */}
                   </div>
                 ) : error ? (
                   <Message variant="alert-danger">{error}</Message>
                 ) : (
                   <>
-                    {products.map((product) => (
+                    {products.map((product) => ( //map trả về số lượng sản phẩm trùng với keyword
                       <div
                         className="shop col-lg-4 col-md-6 col-sm-6"
                         key={product._id}

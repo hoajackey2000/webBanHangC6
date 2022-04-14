@@ -81,13 +81,13 @@ const MainProducts = (props) => {
 
 
 
-          {/* <Pagination
+          <Pagination
             pages={pages}
             page={page}
             keyword={keyword ? keyword : ""}
-          /> */}
+          />
 
-          <nav className="float-end mt-4" aria-label="Page navigation">
+          {/* <nav className="float-end mt-4" aria-label="Page navigation">
             <ul className="pagination">
               <li className="page-item disabled">
                 <Link className="page-link" to="#">
@@ -115,7 +115,7 @@ const MainProducts = (props) => {
                 </Link>
               </li>
             </ul>
-          </nav>
+          </nav> */}
 
 
 

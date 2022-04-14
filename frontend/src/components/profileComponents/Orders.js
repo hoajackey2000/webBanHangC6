@@ -15,7 +15,7 @@ const Orders = (props) => {
         <>
           {orders.length === 0 ? (
             <div className="col-12 alert alert-info text-center mt-3">
-              No Orders
+              Bạn chưa đặt đơn hàng nào cả
               <Link
                 className="btn btn-success mx-2 px-3 py-2"
                 to="/"

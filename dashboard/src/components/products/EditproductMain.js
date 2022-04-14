@@ -71,10 +71,10 @@ const EditProductMain = (props) => {
   };
 
   // Create our number formatter.
-  var formatter = new Intl.NumberFormat({
-    style: 'currency',
-    currency: 'VND',
-  });
+  // var formatter = new Intl.NumberFormat('en-US', {
+  //   style: 'currency',
+  //   currency: 'VND',
+  // });
 
   return (
     <>
@@ -131,7 +131,7 @@ const EditProductMain = (props) => {
                           className="form-control"
                           id="product_price"
                           required
-                          value={formatter.format(price)}
+                          value={price} //formatter.format(price)
                           onChange={(e) => setPrice(e.target.value)}
                         />
                       </div>
