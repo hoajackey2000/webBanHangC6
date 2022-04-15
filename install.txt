@@ -1,0 +1,3 @@
+//npm install bcryptjs dotenv express express-async-handler jsonwebtoken mongoose morgan
+//npm install -D concurrently nodemon
+//npm install react-paypal-button-v2 --save

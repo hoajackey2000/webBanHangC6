@@ -11,7 +11,7 @@ import orderRouter from "./Routes/orderRoutes.js";
 dotenv.config();
 connectDatabase();
 const app = express();
-app.use(express.json());
+app.use(express.json()); // chuyển đổi thành json
 
 // API
 app.use("/api/import", ImportData);
@@ -22,7 +22,7 @@ app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });
 
-// ERROR HANDLER
+// ERROR
 app.use(notFound);
 app.use(errorHandler);
 
